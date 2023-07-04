@@ -1,0 +1,4 @@
+id,title,isCompleted,createdDate,importance,deadline,changedDate
+1,Walk the dog,true,2023-06-12 21:00,,2023-06-12 21:00:30,2023-06-20 21:00:30
+2,Buy groceries,false,2023-06-10 09:00,high,,2023-06-14 15:30:00
+3,Do laundry,false,2023-06-15 18:30,regular,,,

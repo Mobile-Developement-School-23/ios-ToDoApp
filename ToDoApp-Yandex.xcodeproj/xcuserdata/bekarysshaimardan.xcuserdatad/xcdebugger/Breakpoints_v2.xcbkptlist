@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BDBB36CF-AD95-4663-BCCB-7A48013E4DA0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB7FA14A-6293-464C-B118-BA3B5864C053"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/parsingCSV.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "parse(csv:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB7FA14A-6293-464C-B118-BA3B5864C053 - 28f9d18ed88505bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "980">
+               </Location>
+               <Location
+                  uuid = "EB7FA14A-6293-464C-B118-BA3B5864C053 - 28f9d18ed88505bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "800">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42AD37C8-E215-4741-8650-7E6E18F4AA88"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/parsingCSV.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "parse(csv:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "42AD37C8-E215-4741-8650-7E6E18F4AA88 - 28f9d18ed8850638"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  uuid = "42AD37C8-E215-4741-8650-7E6E18F4AA88 - 28f9d18ed8850619"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4743FA8-8C39-4855-806F-E5438C1557F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/parsingCSV.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "parse(csv:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A4743FA8-8C39-4855-806F-E5438C1557F1 - 28f9d18ed8850747"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "3008">
+               </Location>
+               <Location
+                  uuid = "A4743FA8-8C39-4855-806F-E5438C1557F1 - 28f9d18ed8850747"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E763E198-57BB-446B-B0F3-FEA3749FD441"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/parsingCSV.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "parse(csv:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E763E198-57BB-446B-B0F3-FEA3749FD441 - 28f9d18ed88508cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2904">
+               </Location>
+               <Location
+                  uuid = "E763E198-57BB-446B-B0F3-FEA3749FD441 - 28f9d18ed88508cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2032">
+               </Location>
+               <Location
+                  uuid = "E763E198-57BB-446B-B0F3-FEA3749FD441 - 28f9d18ed88508cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85695391-3F29-4826-A0B0-F590CCE009C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/parsingCSV.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "parse(csv:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "85695391-3F29-4826-A0B0-F590CCE009C4 - 3edf7d436c7fa1de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.ToDoItem.csv.getter : Swift.String"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "85695391-3F29-4826-A0B0-F590CCE009C4 - 28f9d18ed88509d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ToDoApp_Yandex.ToDoItem.parse(csv: Swift.String) -&gt; Swift.Optional&lt;ToDoApp_Yandex.ToDoItem&gt;"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Desktop/Start%20of%20the%20IOS%20Journey/ToDoApp-Yandex/ToDoApp-Yandex/parsingCSV.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2732">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27759B39-622E-4237-B344-C8985608EE73"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/deadlineView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "setupViews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
