@@ -3,4 +3,481 @@
    uuid = "85719BA6-1E9C-4C67-AFF7-C084D5263741"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1658113-A3BD-45C8-A402-D9A7E4846956"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/Extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D1658113-A3BD-45C8-A402-D9A7E4846956 - e754aad1ba40dfc5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1492">
+               </Location>
+               <Location
+                  uuid = "D1658113-A3BD-45C8-A402-D9A7E4846956 - e754aad1ba40dfc5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05B11E0E-6779-4ABA-B55D-96C3FC768AE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/Extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "05B11E0E-6779-4ABA-B55D-96C3FC768AE1 - e754aad1ba40d132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "3184">
+               </Location>
+               <Location
+                  uuid = "05B11E0E-6779-4ABA-B55D-96C3FC768AE1 - e754aad1ba40d132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "2988">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71E20DD2-0580-4877-9D90-B434039FEECD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/Extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6086903-1E96-4352-88AF-F3F2CCC37E42"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/Extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C6086903-1E96-4352-88AF-F3F2CCC37E42 - e754aad1ba40d1b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2888">
+               </Location>
+               <Location
+                  uuid = "C6086903-1E96-4352-88AF-F3F2CCC37E42 - e754aad1ba40d1b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "3068">
+               </Location>
+               <Location
+                  uuid = "C6086903-1E96-4352-88AF-F3F2CCC37E42 - e754aad1ba40d1f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.MainViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "4712">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "744C75A0-18A0-4552-BB00-3ABA165012DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "init(style:reuseIdentifier:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "744C75A0-18A0-4552-BB00-3ABA165012DB - 214b28042e384790"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "3360">
+               </Location>
+               <Location
+                  uuid = "744C75A0-18A0-4552-BB00-3ABA165012DB - 214b28042e384790"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "3336">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1153D6B7-6695-46D7-9C36-F7CBACBE2C2E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "init(style:reuseIdentifier:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1153D6B7-6695-46D7-9C36-F7CBACBE2C2E - 214b28042e384146"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "6748">
+               </Location>
+               <Location
+                  uuid = "1153D6B7-6695-46D7-9C36-F7CBACBE2C2E - 214b28042e384146"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "6724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DAE2CF5-586D-4D08-AD9F-CA19304FA462"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoApp-Yandex/HW3/TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "init(style:reuseIdentifier:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DAE2CF5-586D-4D08-AD9F-CA19304FA462 - 214b28042e3843dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "9116">
+               </Location>
+               <Location
+                  uuid = "4DAE2CF5-586D-4D08-AD9F-CA19304FA462 - 214b28042e3843dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoApp_Yandex.TableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ToDoApp_Yandex.TableViewCell"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/ToDoApp-Yandex/HW3/TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "9092">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9C6056F9-3F16-426A-9A13-0752C97919BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Networking.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "addTodoItem(_:revision:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9C6056F9-3F16-426A-9A13-0752C97919BC - eae7122e0c828993"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  uuid = "9C6056F9-3F16-426A-9A13-0752C97919BC - eae7122e0c828993"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "9C6056F9-3F16-426A-9A13-0752C97919BC - eae7122e0c828993"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1248">
+               </Location>
+               <Location
+                  uuid = "9C6056F9-3F16-426A-9A13-0752C97919BC - eae7122e0c828993"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1460">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFC5BEB2-813E-4688-A190-B2B352DB8445"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Networking.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "addTodoItem(_:revision:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AFC5BEB2-813E-4688-A190-B2B352DB8445 - eae7122e0c8289b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "AFC5BEB2-813E-4688-A190-B2B352DB8445 - eae7122e0c8289b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "956">
+               </Location>
+               <Location
+                  uuid = "AFC5BEB2-813E-4688-A190-B2B352DB8445 - eae7122e0c8289b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "1528">
+               </Location>
+               <Location
+                  uuid = "AFC5BEB2-813E-4688-A190-B2B352DB8445 - eae7122e0c8289b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ToDoApp_Yandex.DefaultNetworkingService.addTodoItem(_: ToDoApp_Yandex.ResponseItem, revision: Swift.Int, completion: (Swift.Result&lt;ToDoApp_Yandex.ResponseItem, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ToDoApp-Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bekarysshaimardan/Documents/HW1/ToDoApp-Yandex/Networking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "1740">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

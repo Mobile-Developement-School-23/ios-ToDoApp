@@ -25,7 +25,7 @@ extension ToDoItem{
         }
         let importanceString = item[2]
         
-        let importance = importanceString != "обычная" ? priority(rawValue: importanceString) ?? .regular : .regular
+        let importance = importanceString != "обычная" ? priority(rawValue: importanceString) ?? .basic : .basic
         
         let deadlineString = item[3]
         let deadline = dateFormatter.date(from: deadlineString)
@@ -36,7 +36,7 @@ extension ToDoItem{
         }
         let changedDateString = item[6]
         let changedDate = dateFormatter.date(from: changedDateString)
-        let newToDoItem = ToDoItem(id: id, title: title, importance: importance, deadline: deadline, isCompleted: isCompleted, createdDate: createdDate, changedDate: changedDate)
+        let newToDoItem = ToDoItem(id: id, text: title, importance: importance, deadline: deadline, done: isCompleted, created_at: createdDate, changed_at: changedDate, last_updated_by: nil)
         return newToDoItem
     }
     
@@ -48,28 +48,28 @@ extension ToDoItem{
   
         
         let itemImportance: String
-        if importance != .regular {
+        if importance != .basic {
             itemImportance = importance.rawValue
         } else {
             itemImportance = ""
         }
         
         
-        var csvString = "\(itemId),\(title),\(itemImportance),"
+        var csvString = "\(itemId),\(text),\(itemImportance),"
         if let deadline = deadline {
             let deadlineString = dateFormatter.string(from: deadline)
             csvString += "\(deadlineString),"
         } else {
             csvString += ","
         }
-        csvString += "\(isCompleted),"
+        csvString += "\(done),"
         
         
-       let createdDateString = dateFormatter.string(from: createdDate)
+       let createdDateString = dateFormatter.string(from: created_at)
        csvString += "\(createdDateString),"
         
         
-        if let changedDate = changedDate {
+        if let changedDate = changed_at {
         let changedDateString = dateFormatter.string(from: changedDate)
         csvString += "\(changedDateString)"
         }

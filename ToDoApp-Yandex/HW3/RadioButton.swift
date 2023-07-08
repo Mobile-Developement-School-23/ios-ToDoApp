@@ -4,7 +4,7 @@ class RadioButton: UIButton {
     let selectedImageName = "checkmark.circle.fill"
     let deselectedImageName = "circle"
     let buttonSize: CGFloat = 24
-
+    
     override init(frame: CGRect) {
         let buttonFrame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
         super.init(frame: buttonFrame)

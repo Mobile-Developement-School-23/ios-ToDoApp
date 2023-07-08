@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     let secondView = CustomView()
     let deleteButton = DeleteButton()
     let miniTextView = MiniTextView()
+    var selectedDate: Date?
     let segmentedControl = SegmentedControlView(selectedSegmentIndex: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +125,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             secondView.toggleAdditionalLabelVisibility(sender.isOn)
             let initialDate = calendarView.datePicker.date
             secondView.updateAdditionalLabel(withDate: initialDate)
-            
+            selectedDate = initialDate
             // Create and display the pop-up calendar view
             calendarView.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview(calendarView)
@@ -189,13 +190,13 @@ class ViewController: UIViewController, UITextViewDelegate {
     func selectedPriority(segmentedControl: UISegmentedControl) -> priority{
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            return .unimportant
+            return .low
         case 1:
-            return .regular
+            return .basic
         case 2:
             return .important
         default:
-            return .regular
+            return .basic
         }
     }
     
@@ -209,7 +210,20 @@ class ViewController: UIViewController, UITextViewDelegate {
         titleLabel.textColor = .label
         customNavigationBar.addSubview(titleLabel)
         
-        saveButton.frame = CGRect(x: customNavigationBar.frame.size.width - 125, y: (customNavigationBar.frame.size.height - 30) / 2, width: 110, height: 30)
+        // Assuming you have references to `saveButton` and `customNavigationBar`
+
+        customNavigationBar.addSubview(saveButton)
+        // Disable autoresizing mask translation
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add constraints to position the button on the right side of the navigation bar
+        NSLayoutConstraint.activate([
+            saveButton.trailingAnchor.constraint(equalTo: customNavigationBar.trailingAnchor, constant: -10), // Adjust the constant as needed
+            saveButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
+            saveButton.widthAnchor.constraint(equalToConstant: 110),
+            saveButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+
         saveButton.setTitle("Сохранить", for: .normal)
         saveButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         saveButton.isEnabled = false
@@ -231,15 +245,14 @@ class ViewController: UIViewController, UITextViewDelegate {
     @objc func saveButtonTapped() {
 //        let segmentedControl = segmentedControl.selectedSegmentIndex // replace this with your actual segmented control
             let priority = selectedPriority(segmentedControl: segmentedControl)
-        
-        let newItem = ToDoItem(id: UUID().uuidString, title: miniTextView.text, importance: priority, deadline: nil, isCompleted: false, createdDate: Date(), changedDate: nil)
+        let newItem = ToDoItem(id: UUID().uuidString, text: miniTextView.text, importance: priority, deadline: selectedDate, done: false, created_at: Date(), changed_at: nil, last_updated_by: nil)
             
             // Call the didSaveItem closure if it's set
             didSaveItem?(newItem)
             
             // Dismiss the view controller
             dismiss(animated: true, completion: nil)
-        print("Save Button Tapped")
+        print("Save Button Tapped + \(newItem.importance)")
         }
     
     @objc func cancelButtonTapped() {
@@ -248,8 +261,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc private func datePickerValueChanged() {
-        let selectedDate = calendarView.datePicker.date
-        secondView.updateAdditionalLabel(withDate: selectedDate)
+        selectedDate = calendarView.datePicker.date
+        if let unwrappedDate = selectedDate {
+            secondView.updateAdditionalLabel(withDate: unwrappedDate)
+        }
         
         if let dayView = calendarView.datePicker.subviews.first?.subviews.first(where: { String(describing: type(of: $0)) == "UIDatePickerDayView" }) {
             if let dayLabel = dayView.subviews.first?.subviews.first(where: { $0 is UILabel }) as? UILabel {

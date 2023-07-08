@@ -19,7 +19,7 @@ extension ToDoItem {
         let createdDate = Date(timeIntervalSince1970: createdTimestamp)
         
         let importanceString = jsonDict["importance"] as? String
-        let importance = priority(rawValue: importanceString ?? "") ?? .regular
+        let importance = priority(rawValue: importanceString ?? "") ?? .basic
         
         let deadlineTimestamp = jsonDict["deadline"] as? TimeInterval
         let deadline: Date?
@@ -39,12 +39,13 @@ extension ToDoItem {
         
         let item = ToDoItem(
             id: id ?? UUID().uuidString,
-            title: title,
+            text: title,
             importance: importance,
             deadline: deadline,
-            isCompleted: isCompleted,
-            createdDate: createdDate,
-            changedDate: changedDate
+            done: isCompleted,
+            created_at: createdDate,
+            changed_at: changedDate,
+            last_updated_by: nil
         )
         
         return item
@@ -54,13 +55,13 @@ extension ToDoItem {
     var json: Any {
         var jsonObject: [String: Any?] = [
             "id": id,
-            "title": title,
-            "isCompleted": isCompleted,
-            "createdDate": createdDate.timeIntervalSince1970,
-            "changedDate": changedDate?.timeIntervalSince1970
+            "title": text,
+            "isCompleted": done,
+            "createdDate": created_at.timeIntervalSince1970,
+            "changedDate": changed_at?.timeIntervalSince1970
         ]
 
-        if importance != .regular {
+        if importance != .basic {
             jsonObject["importance"] = importance.rawValue
         }
 

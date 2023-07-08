@@ -1,18 +1,21 @@
 import Foundation
+import UIKit
 
-struct ToDoItem{
+struct ToDoItem: Codable{
     let id: String
-    let title: String
+    let text: String
     let importance: priority
     let deadline: Date?
-    var isCompleted: Bool
-    let createdDate: Date
-    let changedDate: Date?
+    var done: Bool
+    var color: String?
+    let created_at: Date
+    let changed_at: Date?
+    let last_updated_by: String?
 }
-enum priority: String{
-    case unimportant = "неважная"
-    case regular = "обычная"
-    case important = "важная"
+enum priority: String, Codable{
+    case low = "low"
+    case basic = "basic"
+    case important = "important"
 }
 
 
