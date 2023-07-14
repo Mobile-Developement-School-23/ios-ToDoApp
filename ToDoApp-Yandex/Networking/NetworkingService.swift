@@ -3,14 +3,22 @@ import UIKit
 
 struct ToDoResponse: Codable {
     let status: String
-    let list: [ResponseItem]
-    let revision: Int
+    let list: [ToDoItem]
+//    let revision: Int
 }
 struct ToDoPostRequest: Codable {
     let status: String
-    let element: ResponseItem
+    let element: ToDoItem
 }
-
+struct ToDoPostAnswer: Codable{
+    let element: ToDoItem
+    let revision: Int
+}
+struct ToDoPatchRequest: Codable {
+    let status: String
+    let list: [ToDoItem]
+    let revision: Int
+}
 struct ResponseItem: Codable {
     let id: String
     let text: String
@@ -23,17 +31,18 @@ struct ResponseItem: Codable {
     let last_updated_by: String
 }
 protocol NetworkingService {
-    func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
+    func getToDoItems(completion: @escaping (Result<[ToDoItem], Error>) -> Void)
     
 }
 
 class DefaultNetworkingService: NetworkingService {
+    public var currentRevision : Int = 0;
     private let baseURL = URL(string: "https://beta.mrdekk.ru/todobackend")!
     private let session = URLSession.shared
     private let token = "whoremastery"
     private var isDirty = false
-
-func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
+//MARK: -- Function to get list of items
+func getToDoItems(completion: @escaping (Result<[ToDoItem], Error>) -> Void)
     {
     let url = baseURL.appendingPathComponent("/list")
     var request = URLRequest(url: url)
@@ -47,35 +56,21 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
         }
 
         if let data = data {
-//            if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-//            //    print(json)
-//            }
-
             do {
                 let decoder = JSONDecoder()
-                let todoResponse = try decoder.decode(ToDoResponse.self, from: data)
+                let todoResponse = try decoder.decode(ToDoPatchRequest.self, from: data)
                 
-                let todos: [ResponseItem] = todoResponse.list.map { responseItem in
-                    let id = responseItem.id
-                    let deadline = responseItem.deadline
-                    let createdDate = responseItem.created_at
-                    let changedDate = responseItem.changed_at
+                self.currentRevision = todoResponse.revision
+                
+                let todos: [ToDoItem] = todoResponse.list.map { serverItem in
+                    let id = serverItem.id
+                    let deadline = serverItem.deadline
+                    let createdDate = serverItem.created_at
+                    let changedDate = serverItem.changed_at
                     let deviceID = UIDevice.current.identifierForVendor?.uuidString
-
-                    return ResponseItem(
-                                    id: id,
-                                    text: responseItem.text,
-                                    importance: responseItem.importance,
-                                    deadline: deadline,
-                                    done: responseItem.done,
-                                    color: responseItem.color,
-                                    created_at: createdDate,
-                                    changed_at: changedDate,
-                                    last_updated_by: deviceID!
-                    )
+                    return ToDoItem(id: id, text: serverItem.text, importance: serverItem.importance, deadline: deadline, done: serverItem.done, created_at: createdDate, changed_at: changedDate, last_updated_by: deviceID ?? "Beka's iPhone")
+         
                 }
-                
-               // print(todos)
                 completion(.success(todos))
                 
             } catch {
@@ -86,16 +81,18 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
 
     task.resume()
 }
-        func updateList(list: [ToDoItem], revision: Int32, completion: @escaping (Result<[ToDoItem], Error>) -> Void) {
+    //MARK: -- Function to update list
+        func updateList(list: [ToDoItem], completion: @escaping (Result<[ToDoItem], Error>) -> Void) {
             let url = baseURL.appendingPathComponent("/list")
             var request = URLRequest(url: url)
             request.httpMethod = "PATCH"
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            request.addValue("\(revision)", forHTTPHeaderField: "X-Last-Known-Revision")
+            request.addValue("\(self.currentRevision)", forHTTPHeaderField: "X-Last-Known-Revision")
 
             do {
                 let encoder = JSONEncoder()
-                let data = try encoder.encode(list)
+                let postRequest = ToDoResponse(status: "ok", list: list)
+                let data = try encoder.encode(postRequest)
                 request.httpBody = data
 
                 let task = session.dataTask(with: request) { data, response, error in
@@ -108,9 +105,9 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
                         
                         do {
                             let decoder = JSONDecoder()
-                            let updatedList = try decoder.decode([ToDoItem].self, from: data)
-                            print(updatedList)
-                            completion(.success(updatedList))
+                            let updatedList = try decoder.decode(ToDoPatchRequest.self, from: data)
+                            self.currentRevision = updatedList.revision
+                            completion(.success(updatedList.list))
                         } catch {
                             completion(.failure(error))
                         }
@@ -122,20 +119,21 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
                 completion(.failure(error))
             }
         }
-    
-    func addTodoItem(_ todoItem: ResponseItem, revision: Int, completion: @escaping (Result<ResponseItem, Error>) -> Void) {
+    // MARK: -- Function that adds new TodoItem
+    func addTodoItem(_ todoItem: ToDoItem, completion: @escaping (Result<ToDoItem, Error>) -> Void) {
         let url = baseURL.appendingPathComponent("/list")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("\(revision)", forHTTPHeaderField: "X-Last-Known-Revision")
+        request.addValue("\(self.currentRevision)", forHTTPHeaderField: "X-Last-Known-Revision")
+        print("cur Rev: \(self.currentRevision)")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             let encoder = JSONEncoder()
             let postRequest = ToDoPostRequest(status: "ok", element: todoItem)
-                   print("postRequest: \(postRequest)")
             let data = try encoder.encode(postRequest)
             request.httpBody = data
+            print(postRequest)
             let task = session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     completion(.failure(error))
@@ -152,7 +150,8 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
                     
                     do {
                         let decoder = JSONDecoder()
-                        let newItem = try decoder.decode(ToDoPostRequest.self, from: data)
+                        let newItem = try decoder.decode(ToDoPostAnswer.self, from: data)
+                        self.currentRevision = newItem.revision
                         completion(.success(newItem.element))
                     } catch {
                         completion(.failure(error))
@@ -165,49 +164,21 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
             completion(.failure(error))
         }
     }
-    func getTodoItem(withId id: String, completion: @escaping (Result<ResponseItem, Error>) -> Void) {
-        let url = baseURL.appendingPathComponent("/list/\(id)")
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        let task = session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            guard let data = data else {
-                completion(.failure(NetworkError.unknown))
-                return
-            }
-
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(ToDoPostRequest.self, from: data)
-                completion(.success(response.element))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-
-        task.resume()
-    }
+    //MARK: -- Function to update certain item
     
-    func updateTodoItem(withId id: String, item: ResponseItem, completion: @escaping (Result<ResponseItem, Error>) -> Void) {
+    func updateTodoItem(withId id: String, item: ToDoItem, completion: @escaping (Result<ToDoItem, Error>) -> Void) {
         let url = baseURL.appendingPathComponent("/list/\(id)")
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        request.addValue("\(currentRevision)", forHTTPHeaderField: "X-Last-Known-Revision")
         do {
             let encoder = JSONEncoder()
             let requestBody = ToDoPostRequest(status: "ok", element: item)
             let data = try encoder.encode(requestBody)
             request.httpBody = data
-            
+            print(requestBody)
             let task = session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     completion(.failure(error))
@@ -228,8 +199,9 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
                 
                 do {
                     let decoder = JSONDecoder()
-                    let updatedItem = try decoder.decode(ToDoPostRequest.self, from: data)
+                    let updatedItem = try decoder.decode(ToDoPostAnswer.self, from: data)
                     completion(.success(updatedItem.element))
+                    self.currentRevision = updatedItem.revision
                 } catch {
                     completion(.failure(error))
                 }
@@ -240,7 +212,66 @@ func getToDoItems(completion: @escaping (Result<[ResponseItem], Error>) -> Void)
             completion(.failure(error))
         }
     }
+    //MARK: -- Function to get item by id
+    func getTodoItem(withId id: String, completion: @escaping (Result<ToDoItem, Error>) -> Void) {
+        let url = baseURL.appendingPathComponent("/list/\(id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
 
+            guard let data = data else {
+                completion(.failure(NetworkError.unknown))
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(ToDoPostAnswer.self, from: data)
+                self.currentRevision = response.revision
+                completion(.success(response.element))
+                
+            } catch {
+                completion(.failure(error))
+            }
+        }
+
+        task.resume()
+    }
+    // MARK: -- function to delete item by id
+    func deleteTodoItem(withID id: String, completion: @escaping (Result<ToDoItem, Error>) -> Void){
+        let url = baseURL.appendingPathComponent("/list/\(id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("\(currentRevision)", forHTTPHeaderField: "X-Last-Known-Revision")
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error{
+                completion(.failure(error))
+            }
+            
+            guard let data = data else{
+                completion(.failure(NetworkError.unknown))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(ToDoPostAnswer.self, from: data)
+                self.currentRevision = response.revision
+                completion(.success(response.element))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+        
+    }
     
 }

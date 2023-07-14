@@ -1,16 +1,23 @@
 import UIKit
-
+import CocoaLumberjack
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var fileCache: FileCache?
-
+    let networkingService = DefaultNetworkingService()
     override init() {
         fileCache = FileCache()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        DDLog.add(DDOSLogger.sharedInstance)
+        let fileLogger: DDFileLogger = DDFileLogger()
+        fileLogger.rollingFrequency = 0
+        fileLogger.maximumFileSize = 1 * 1024 * 1024
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 2
+        DDLog.add(fileLogger)
         
         let mainViewController = MainViewController()
         mainViewController.title = "Task"
@@ -39,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        fileCache?.saveToJSONFile(named: "Tasks.geojson")
+        guard let mainViewController = window?.rootViewController as? MainViewController else {
+            return
+        }
+
+        mainViewController.fetchToDoItems()
     }
 }

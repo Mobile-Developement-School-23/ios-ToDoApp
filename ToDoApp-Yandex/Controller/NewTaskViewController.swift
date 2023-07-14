@@ -1,7 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate {
+class NewTaskViewController: UIViewController, UITextViewDelegate {
+    var toDoItem : ToDoItem?
     var didSaveItem: ((ToDoItem) -> Void)?
+    var didDeleteItem: ((ToDoItem) -> Void)?
     let dividerView = UIView()
     let grayDividerView = UIView()
     let stackView = UIStackView()
@@ -10,14 +12,33 @@ class ViewController: UIViewController, UITextViewDelegate {
     let grayLineView = UIView()
     let saveButton = UIButton(type: .system)
     let calendarView = CalendarView()
-    let secondView = CustomView()
+    let secondView = DeadlineViewControl()
     let deleteButton = DeleteButton()
-    let miniTextView = MiniTextView()
-    var selectedDate: Date?
-    let segmentedControl = SegmentedControlView(selectedSegmentIndex: 1)
+    let miniTextView = TextView()
+    let toggleSwitch = UISwitch()
+    var selectedDate: Double?
+    let segmentedControl = SegmentedControlView()
     override func viewDidLoad() {
         super.viewDidLoad()
         miniTextView.delegate = self
+        if (toDoItem?.importance == .important){
+            segmentedControl.selectedSegmentIndex = 2;
+        }else if (toDoItem?.importance == .low){
+            segmentedControl.selectedSegmentIndex = 0;
+        }else{
+            segmentedControl.selectedSegmentIndex = 1;
+        }
+        if toDoItem?.id != ""{
+            miniTextView.text = toDoItem?.text
+            deleteButton.isEnabled = true
+            deleteButton.buttonLabel.textColor = UIColor(named: "ColorRed")
+        }
+        if toDoItem?.deadline != 0{
+            toggleSwitch.isOn = true
+            secondView.toggleCalendarLabelVisibility(true)
+            secondView.updateCalendarLabel(withDate: Date(timeIntervalSince1970: toDoItem?.deadline ?? Date().timeIntervalSince1970))
+        }
+        miniTextView.isScrollEnabled = false
         
         scrollView.backgroundColor = UIColor(named: "BackPrimary")
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +46,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         let customNavigationBar = setupNavigationBar()
         scrollView.addSubview(customNavigationBar)
         
-        // Set constraints for the scroll view to occupy the whole screen
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -36,29 +56,25 @@ class ViewController: UIViewController, UITextViewDelegate {
             customNavigationBar.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             customNavigationBar.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             customNavigationBar.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            customNavigationBar.heightAnchor.constraint(equalToConstant: 56) // Adjust the height as needed
+            customNavigationBar.heightAnchor.constraint(equalToConstant: 56)
         ])
-        
-        // Create a stack view as the container
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         scrollView.addSubview(stackView)
         
-        // Set constraints for the stack view to fill the scroll view
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16).isActive = true
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 72).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16).isActive = true
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32).isActive = true
-        let maximumStackViewHeight: CGFloat = traitCollection.verticalSizeClass == .compact ? 200 : 650
-        let maximumStackViewHeightConstraint = stackView.heightAnchor.constraint(lessThanOrEqualToConstant: maximumStackViewHeight)
-        
-        // Activate the maximum height constraint
-        maximumStackViewHeightConstraint.isActive = true
+//        let maximumStackViewHeight: CGFloat = traitCollection.verticalSizeClass == .compact ? 200 : 650
+//        let maximumStackViewHeightConstraint = stackView.heightAnchor.constraint(lessThanOrEqualToConstant: maximumStackViewHeight)
+//
+//        maximumStackViewHeightConstraint.isActive = true
         
         stackView.addArrangedSubview(miniTextView)
         
-        let importanceView = FirstView()
+        let importanceView = ImportanceView()
         stackView.addArrangedSubview(importanceView)
         
         importanceView.addSubview(segmentedControl)
@@ -86,7 +102,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         secondView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         stackView.addArrangedSubview(secondView)
         
-        let toggleSwitch = UISwitch()
+        
         toggleSwitch.translatesAutoresizingMaskIntoConstraints = false
         secondView.addSubview(toggleSwitch)
         NSLayoutConstraint.activate([
@@ -97,7 +113,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         stackView.addArrangedSubview(deleteButton)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        deleteButton.isEnabled = false
+//        deleteButton.isEnabled = false
         
         stackView.addArrangedSubview(deleteButton)
         stackView.setCustomSpacing(16.0, after: miniTextView)
@@ -122,10 +138,11 @@ class ViewController: UIViewController, UITextViewDelegate {
             
             // Change the corner radius of the secondView to zero
             secondView.layer.cornerRadius = 0
-            secondView.toggleAdditionalLabelVisibility(sender.isOn)
+            secondView.toggleCalendarLabelVisibility(sender.isOn)
             let initialDate = calendarView.datePicker.date
-            secondView.updateAdditionalLabel(withDate: initialDate)
-            selectedDate = initialDate
+            secondView.updateCalendarLabel(withDate: initialDate)
+            
+            selectedDate = initialDate.timeIntervalSince1970
             // Create and display the pop-up calendar view
             calendarView.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview(calendarView)
@@ -157,21 +174,18 @@ class ViewController: UIViewController, UITextViewDelegate {
             calendarView.removeFromSuperview()
             dividerView.removeFromSuperview()
             grayDividerView.removeFromSuperview()
-            secondView.toggleAdditionalLabelVisibility(false)
+            secondView.toggleCalendarLabelVisibility(false)
         }
     }
     
-    @objc func deleteButtonTapped() {
-        print("Delete button tapped")
-    }
     
-    internal func textViewDidChange(_ miniTextView: UITextView) {
+    
+    internal func textViewDidChange(_ textView: UITextView) {
         let isTextViewEmpty = miniTextView.text.isEmpty
-        
         saveButton.isEnabled = !isTextViewEmpty
-        saveButton.setTitleColor(isTextViewEmpty ? UIColor(named: "ColorGray") : UIColor(named: "ColorBlue"), for: .normal)
-        deleteButton.isEnabled = !isTextViewEmpty
-        deleteButton.buttonLabel.textColor = isTextViewEmpty ? UIColor(named: "ColorGray") : .red
+        saveButton.setTitleColor(saveButton.isEnabled ? UIColor(named: "ColorBlue") : UIColor(named: "ColorGray"), for: .normal)
+        deleteButton.buttonLabel.textColor = isTextViewEmpty ? UIColor(named: "ColorGray") : UIColor(named: "ColorRed")
+
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -180,7 +194,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor(named: "LabelPrimary")
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Что надо сделать?"
@@ -209,24 +223,18 @@ class ViewController: UIViewController, UITextViewDelegate {
         titleLabel.text = "Дело"
         titleLabel.textColor = .label
         customNavigationBar.addSubview(titleLabel)
-        
-        // Assuming you have references to `saveButton` and `customNavigationBar`
-
         customNavigationBar.addSubview(saveButton)
-        // Disable autoresizing mask translation
         saveButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Add constraints to position the button on the right side of the navigation bar
         NSLayoutConstraint.activate([
-            saveButton.trailingAnchor.constraint(equalTo: customNavigationBar.trailingAnchor, constant: -10), // Adjust the constant as needed
+            saveButton.trailingAnchor.constraint(equalTo: customNavigationBar.trailingAnchor, constant: -10),
             saveButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor),
             saveButton.widthAnchor.constraint(equalToConstant: 110),
             saveButton.heightAnchor.constraint(equalToConstant: 30)
         ])
-
+        
         saveButton.setTitle("Сохранить", for: .normal)
         saveButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        saveButton.isEnabled = false
+        saveButton.isEnabled = !miniTextView.text.isEmpty && miniTextView.text != "Что надо сделать?"
         saveButton.setTitleColor(UIColor(named: "labelColor"), for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         customNavigationBar.addSubview(saveButton)
@@ -241,29 +249,43 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         return customNavigationBar
     }
-    
-    @objc func saveButtonTapped() {
-//        let segmentedControl = segmentedControl.selectedSegmentIndex // replace this with your actual segmented control
-            let priority = selectedPriority(segmentedControl: segmentedControl)
-        let newItem = ToDoItem(id: UUID().uuidString, text: miniTextView.text, importance: priority, deadline: selectedDate, done: false, created_at: Date(), changed_at: nil, last_updated_by: nil)
-            
-            // Call the didSaveItem closure if it's set
-            didSaveItem?(newItem)
-            
-            // Dismiss the view controller
-            dismiss(animated: true, completion: nil)
-        print("Save Button Tapped + \(newItem.importance)")
+    func createNewItem() -> ToDoItem{
+        let priority = selectedPriority(segmentedControl: segmentedControl)
+        let id: String
+        if toDoItem?.id == ""{
+            id = UUID().uuidString
+        }else{
+            id = toDoItem?.id ?? ""
         }
-    
+        if let dd = selectedDate{
+            selectedDate = dd
+        }else{
+            selectedDate = toDoItem?.deadline
+        }
+        let newItem = ToDoItem(id: id, text: miniTextView.text, importance: priority, deadline: selectedDate ?? 0, done: toDoItem?.done ?? false, created_at: Double(Int64(Date().timeIntervalSince1970)), changed_at: Double(Int64(Date().timeIntervalSince1970)), last_updated_by: "Beka's iPhone")
+        return newItem
+    }
+    @objc func saveButtonTapped() {
+        let newItem = createNewItem()
+        didSaveItem?(newItem)
+        dismiss(animated: true, completion: nil)
+    }
+    @objc func deleteButtonTapped() {
+        let newItem = createNewItem()
+        didDeleteItem?(newItem)
+       // print("Delete")
+        dismiss(animated: true, completion: nil)
+    }
+                            
+                               
     @objc func cancelButtonTapped() {
         dismiss(animated: true)
-        print("Cancel Button Tapped")
     }
     
     @objc private func datePickerValueChanged() {
-        selectedDate = calendarView.datePicker.date
+        selectedDate = calendarView.datePicker.date.timeIntervalSince1970
         if let unwrappedDate = selectedDate {
-            secondView.updateAdditionalLabel(withDate: unwrappedDate)
+            secondView.updateCalendarLabel(withDate: Date(timeIntervalSince1970: unwrappedDate))
         }
         
         if let dayView = calendarView.datePicker.subviews.first?.subviews.first(where: { String(describing: type(of: $0)) == "UIDatePickerDayView" }) {

@@ -1,6 +1,6 @@
 import UIKit
 
-class FirstView: UIView {
+class ImportanceView: UIView {
     private let firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -11,15 +11,15 @@ class FirstView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupFirstView()
+        setupImportanceView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupFirstView()
+        setupImportanceView()
     }
     
-    private func setupFirstView() {
+    private func setupImportanceView() {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 56).isActive = true
         backgroundColor = UIColor(named: "BackSecondary")

@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		520FA2512A379BEA00CB3B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2502A379BEA00CB3B8D /* AppDelegate.swift */; };
 		520FA2532A379BEA00CB3B8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2522A379BEA00CB3B8D /* SceneDelegate.swift */; };
-		520FA2552A379BEA00CB3B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2542A379BEA00CB3B8D /* ViewController.swift */; };
+		520FA2552A379BEA00CB3B8D /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2542A379BEA00CB3B8D /* NewTaskViewController.swift */; };
 		520FA25D2A379BEB00CB3B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520FA25B2A379BEB00CB3B8D /* LaunchScreen.storyboard */; };
 		520FA2682A379BEB00CB3B8D /* ToDoApp_YandexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2672A379BEB00CB3B8D /* ToDoApp_YandexTests.swift */; };
 		520FA2722A379BEB00CB3B8D /* ToDoApp_YandexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2712A379BEB00CB3B8D /* ToDoApp_YandexUITests.swift */; };
 		520FA2742A379BEB00CB3B8D /* ToDoApp_YandexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2732A379BEB00CB3B8D /* ToDoApp_YandexUITestsLaunchTests.swift */; };
 		520FA2822A379C2000CB3B8D /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FA2812A379C2000CB3B8D /* ToDoItem.swift */; };
-		522336B42A4C23C600407118 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522336B32A4C23C600407118 /* Cell.swift */; };
 		5227A86F2A555C20009C4E9A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5227A86E2A555C20009C4E9A /* TableViewCell.swift */; };
 		5238B9962A4D88C100A2F4DD /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238B9952A4D88C100A2F4DD /* RadioButton.swift */; };
 		5238B99A2A4E201100A2F4DD /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5238B9992A4E201100A2F4DD /* assets.xcassets */; };
@@ -23,18 +22,17 @@
 		524333CD2A45A47000902F61 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333CC2A45A47000902F61 /* ScrollView.swift */; };
 		524333CF2A45AF9F00902F61 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333CE2A45AF9F00902F61 /* SegmentControl.swift */; };
 		524333D12A45B3F200902F61 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D02A45B3F200902F61 /* DeleteButton.swift */; };
-		524333D32A45BB7300902F61 /* textView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D22A45BB7300902F61 /* textView.swift */; };
+		524333D32A45BB7300902F61 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D22A45BB7300902F61 /* TextView.swift */; };
 		524333D52A45BD2200902F61 /* ImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D42A45BD2200902F61 /* ImportanceView.swift */; };
-		524333D72A46072E00902F61 /* deadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D62A46072E00902F61 /* deadlineView.swift */; };
-		524BF3D82A577E56002DA800 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524BF3D72A577E56002DA800 /* URLExtension.swift */; };
-		524BF3DA2A577E83002DA800 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524BF3D92A577E83002DA800 /* Networking.swift */; };
+		524333D72A46072E00902F61 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524333D62A46072E00902F61 /* DeadlineView.swift */; };
+		524BF3D82A577E56002DA800 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524BF3D72A577E56002DA800 /* URLSession+Extensions.swift */; };
+		524BF3DA2A577E83002DA800 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524BF3D92A577E83002DA800 /* NetworkingService.swift */; };
 		524BF3DC2A588525002DA800 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524BF3DB2A588525002DA800 /* Errors.swift */; };
-		5270B3042A4212CA00574B7A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270B3032A4212CA00574B7A /* CustomButton.swift */; };
 		527FA4002A417505003FA3BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA3FF2A417505003FA3BE /* MainViewController.swift */; };
 		52B820B72A39CAEA00BA064E /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B820B62A39CAEA00BA064E /* FileCache.swift */; };
 		52B820C22A3BFB2A00BA064E /* parsingJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B820C12A3BFB2A00BA064E /* parsingJSON.swift */; };
-		52B820C42A3BFBDC00BA064E /* parsingCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B820C32A3BFBDC00BA064E /* parsingCSV.swift */; };
-		52D0631B2A4F3A510091F29A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0631A2A4F3A510091F29A /* Extension.swift */; };
+		52D0631B2A4F3A510091F29A /* MainVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0631A2A4F3A510091F29A /* MainVCExtension.swift */; };
+		52EDE4142A5E5A4500FF6A0E /* parsingSQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDE4132A5E5A4500FF6A0E /* parsingSQL.swift */; };
 		C6504B500DFA734A6029C80E /* Pods_ToDoApp_Yandex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94885F6AF4A1DCE0F2CE5E4E /* Pods_ToDoApp_Yandex.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +57,7 @@
 		520FA24D2A379BEA00CB3B8D /* ToDoApp-Yandex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoApp-Yandex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		520FA2502A379BEA00CB3B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		520FA2522A379BEA00CB3B8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		520FA2542A379BEA00CB3B8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		520FA2542A379BEA00CB3B8D /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		520FA25C2A379BEB00CB3B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520FA25E2A379BEB00CB3B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		520FA2632A379BEB00CB3B8D /* ToDoApp-YandexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDoApp-YandexTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,7 +66,6 @@
 		520FA2712A379BEB00CB3B8D /* ToDoApp_YandexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoApp_YandexUITests.swift; sourceTree = "<group>"; };
 		520FA2732A379BEB00CB3B8D /* ToDoApp_YandexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoApp_YandexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		520FA2812A379C2000CB3B8D /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
-		522336B32A4C23C600407118 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		5227A86E2A555C20009C4E9A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5238B9952A4D88C100A2F4DD /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		5238B9992A4E201100A2F4DD /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
@@ -76,18 +73,17 @@
 		524333CC2A45A47000902F61 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		524333CE2A45AF9F00902F61 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		524333D02A45B3F200902F61 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
-		524333D22A45BB7300902F61 /* textView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textView.swift; sourceTree = "<group>"; };
+		524333D22A45BB7300902F61 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		524333D42A45BD2200902F61 /* ImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceView.swift; sourceTree = "<group>"; };
-		524333D62A46072E00902F61 /* deadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deadlineView.swift; sourceTree = "<group>"; };
-		524BF3D72A577E56002DA800 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
-		524BF3D92A577E83002DA800 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		524333D62A46072E00902F61 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
+		524BF3D72A577E56002DA800 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
+		524BF3D92A577E83002DA800 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		524BF3DB2A588525002DA800 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		5270B3032A4212CA00574B7A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		527FA3FF2A417505003FA3BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		52B820B62A39CAEA00BA064E /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		52B820C12A3BFB2A00BA064E /* parsingJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parsingJSON.swift; sourceTree = "<group>"; };
-		52B820C32A3BFBDC00BA064E /* parsingCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parsingCSV.swift; sourceTree = "<group>"; };
-		52D0631A2A4F3A510091F29A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		52D0631A2A4F3A510091F29A /* MainVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtension.swift; sourceTree = "<group>"; };
+		52EDE4132A5E5A4500FF6A0E /* parsingSQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parsingSQL.swift; sourceTree = "<group>"; };
 		94885F6AF4A1DCE0F2CE5E4E /* Pods_ToDoApp_Yandex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoApp_Yandex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56F2C50FE9DE11708DBA57A /* Pods-ToDoApp-Yandex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp-Yandex.release.xcconfig"; path = "Target Support Files/Pods-ToDoApp-Yandex/Pods-ToDoApp-Yandex.release.xcconfig"; sourceTree = "<group>"; };
 		FB1098A30DB37BE64C3804B7 /* Pods-ToDoApp-Yandex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp-Yandex.debug.xcconfig"; path = "Target Support Files/Pods-ToDoApp-Yandex/Pods-ToDoApp-Yandex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,9 +127,6 @@
 		520FA2442A379BEA00CB3B8D = {
 			isa = PBXGroup;
 			children = (
-				524BF3DB2A588525002DA800 /* Errors.swift */,
-				524BF3D92A577E83002DA800 /* Networking.swift */,
-				524BF3D72A577E56002DA800 /* URLExtension.swift */,
 				520FA24F2A379BEA00CB3B8D /* ToDoApp-Yandex */,
 				520FA2702A379BEB00CB3B8D /* ToDoApp-YandexUITests */,
 				520FA2662A379BEB00CB3B8D /* ToDoApp-YandexTests */,
@@ -156,11 +149,11 @@
 		520FA24F2A379BEA00CB3B8D /* ToDoApp-Yandex */ = {
 			isa = PBXGroup;
 			children = (
-				520FA2502A379BEA00CB3B8D /* AppDelegate.swift */,
-				520FA2522A379BEA00CB3B8D /* SceneDelegate.swift */,
-				52DFCC6B2A49B284000E02C0 /* HW1 */,
-				52DFCC6A2A49B1DF000E02C0 /* HW2 */,
-				52DFCC6C2A49B2CB000E02C0 /* HW3 */,
+				52EDE4122A5E517500FF6A0E /* Networking */,
+				52EDE4102A5E4EA100FF6A0E /* Model */,
+				52DFCC6C2A49B2CB000E02C0 /* View */,
+				52DFCC6A2A49B1DF000E02C0 /* Controller */,
+				52EDE4112A5E4EC300FF6A0E /* Delegates */,
 				520FA25E2A379BEB00CB3B8D /* Info.plist */,
 			);
 			path = "ToDoApp-Yandex";
@@ -183,45 +176,62 @@
 			path = "ToDoApp-YandexUITests";
 			sourceTree = "<group>";
 		};
-		52DFCC6A2A49B1DF000E02C0 /* HW2 */ = {
+		52DFCC6A2A49B1DF000E02C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				520FA2542A379BEA00CB3B8D /* ViewController.swift */,
-				524333D22A45BB7300902F61 /* textView.swift */,
-				524333D62A46072E00902F61 /* deadlineView.swift */,
-				524333D42A45BD2200902F61 /* ImportanceView.swift */,
-				524333D02A45B3F200902F61 /* DeleteButton.swift */,
-				524333CE2A45AF9F00902F61 /* SegmentControl.swift */,
-				524333CC2A45A47000902F61 /* ScrollView.swift */,
-				524333CA2A44674600902F61 /* CalendarView.swift */,
-				5270B3032A4212CA00574B7A /* CustomButton.swift */,
+				527FA3FF2A417505003FA3BE /* MainViewController.swift */,
+				52D0631A2A4F3A510091F29A /* MainVCExtension.swift */,
+				520FA2542A379BEA00CB3B8D /* NewTaskViewController.swift */,
 			);
-			path = HW2;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		52DFCC6B2A49B284000E02C0 /* HW1 */ = {
+		52DFCC6C2A49B2CB000E02C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				524333D22A45BB7300902F61 /* TextView.swift */,
+				524333D42A45BD2200902F61 /* ImportanceView.swift */,
+				524333D62A46072E00902F61 /* DeadlineView.swift */,
+				5238B9952A4D88C100A2F4DD /* RadioButton.swift */,
+				524333CC2A45A47000902F61 /* ScrollView.swift */,
+				524333CA2A44674600902F61 /* CalendarView.swift */,
+				524333D02A45B3F200902F61 /* DeleteButton.swift */,
+				524333CE2A45AF9F00902F61 /* SegmentControl.swift */,
+				520FA25B2A379BEB00CB3B8D /* LaunchScreen.storyboard */,
+				5227A86E2A555C20009C4E9A /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52EDE4102A5E4EA100FF6A0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				520FA2812A379C2000CB3B8D /* ToDoItem.swift */,
 				52B820C12A3BFB2A00BA064E /* parsingJSON.swift */,
-				52B820C32A3BFBDC00BA064E /* parsingCSV.swift */,
 				52B820B62A39CAEA00BA064E /* FileCache.swift */,
+				5238B9992A4E201100A2F4DD /* assets.xcassets */,
+				52EDE4132A5E5A4500FF6A0E /* parsingSQL.swift */,
 			);
-			path = HW1;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		52DFCC6C2A49B2CB000E02C0 /* HW3 */ = {
+		52EDE4112A5E4EC300FF6A0E /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				527FA3FF2A417505003FA3BE /* MainViewController.swift */,
-				522336B32A4C23C600407118 /* Cell.swift */,
-				5238B9952A4D88C100A2F4DD /* RadioButton.swift */,
-				52D0631A2A4F3A510091F29A /* Extension.swift */,
-				5227A86E2A555C20009C4E9A /* TableViewCell.swift */,
-				520FA25B2A379BEB00CB3B8D /* LaunchScreen.storyboard */,
-				5238B9992A4E201100A2F4DD /* assets.xcassets */,
+				520FA2502A379BEA00CB3B8D /* AppDelegate.swift */,
+				520FA2522A379BEA00CB3B8D /* SceneDelegate.swift */,
 			);
-			path = HW3;
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		52EDE4122A5E517500FF6A0E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				524BF3DB2A588525002DA800 /* Errors.swift */,
+				524BF3D92A577E83002DA800 /* NetworkingService.swift */,
+				524BF3D72A577E56002DA800 /* URLSession+Extensions.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		787EBE70C0A75C9070409A73 /* Frameworks */ = {
@@ -391,29 +401,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				520FA2552A379BEA00CB3B8D /* ViewController.swift in Sources */,
-				524BF3DA2A577E83002DA800 /* Networking.swift in Sources */,
+				520FA2552A379BEA00CB3B8D /* NewTaskViewController.swift in Sources */,
+				524BF3DA2A577E83002DA800 /* NetworkingService.swift in Sources */,
 				520FA2512A379BEA00CB3B8D /* AppDelegate.swift in Sources */,
-				5270B3042A4212CA00574B7A /* CustomButton.swift in Sources */,
 				527FA4002A417505003FA3BE /* MainViewController.swift in Sources */,
 				524333D12A45B3F200902F61 /* DeleteButton.swift in Sources */,
 				5227A86F2A555C20009C4E9A /* TableViewCell.swift in Sources */,
 				520FA2822A379C2000CB3B8D /* ToDoItem.swift in Sources */,
 				524333CD2A45A47000902F61 /* ScrollView.swift in Sources */,
-				524BF3D82A577E56002DA800 /* URLExtension.swift in Sources */,
+				524BF3D82A577E56002DA800 /* URLSession+Extensions.swift in Sources */,
 				524333CB2A44674600902F61 /* CalendarView.swift in Sources */,
 				52B820B72A39CAEA00BA064E /* FileCache.swift in Sources */,
-				524333D72A46072E00902F61 /* deadlineView.swift in Sources */,
+				524333D72A46072E00902F61 /* DeadlineView.swift in Sources */,
 				52B820C22A3BFB2A00BA064E /* parsingJSON.swift in Sources */,
 				524333CF2A45AF9F00902F61 /* SegmentControl.swift in Sources */,
-				52D0631B2A4F3A510091F29A /* Extension.swift in Sources */,
+				52D0631B2A4F3A510091F29A /* MainVCExtension.swift in Sources */,
+				52EDE4142A5E5A4500FF6A0E /* parsingSQL.swift in Sources */,
 				524333D52A45BD2200902F61 /* ImportanceView.swift in Sources */,
 				520FA2532A379BEA00CB3B8D /* SceneDelegate.swift in Sources */,
 				524BF3DC2A588525002DA800 /* Errors.swift in Sources */,
 				5238B9962A4D88C100A2F4DD /* RadioButton.swift in Sources */,
-				52B820C42A3BFBDC00BA064E /* parsingCSV.swift in Sources */,
-				524333D32A45BB7300902F61 /* textView.swift in Sources */,
-				522336B42A4C23C600407118 /* Cell.swift in Sources */,
+				524333D32A45BB7300902F61 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

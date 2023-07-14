@@ -15,10 +15,14 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		52B766282A5F176B00CF5046 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 52B766272A5F176B00CF5046 /* CocoaLumberjack */; };
+		52B7662A2A5F176B00CF5046 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52B766292A5F176B00CF5046 /* CocoaLumberjackSwift */; };
+		52B7662C2A5F176B00CF5046 /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 52B7662B2A5F176B00CF5046 /* CocoaLumberjackSwiftLogBackend */; };
 		6F858C4A77B31850FCE6463DAC463563 /* Pods-ToDoApp-Yandex-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A9FA1C562E75C00A5599ADF974A9F4 /* Pods-ToDoApp-Yandex-dummy.m */; };
 		B7F6887C70048F12A8BA77CF2CAFF609 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		F868A6E7916BC1C76C8FB8E9779F0457 /* Pods-ToDoApp-Yandex-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BFC0498914E471F66F938C3A343AF21F /* Pods-ToDoApp-Yandex-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,7 +44,7 @@
 		4D53F1E85833163C762B647298A419A1 /* Pods-ToDoApp-Yandex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToDoApp-Yandex.release.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A19F770413801C1F1E03C912D0B4CB46 /* Pods-ToDoApp-Yandex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToDoApp-Yandex.debug.xcconfig"; sourceTree = "<group>"; };
 		A9A9FA1C562E75C00A5599ADF974A9F4 /* Pods-ToDoApp-Yandex-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToDoApp-Yandex-dummy.m"; sourceTree = "<group>"; };
 		B15A45F918D03DEFCCF32A61A4D3E5C2 /* Pods-ToDoApp-Yandex.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ToDoApp-Yandex.modulemap"; sourceTree = "<group>"; };
@@ -55,7 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B766282A5F176B00CF5046 /* CocoaLumberjack in Frameworks */,
 				B7F6887C70048F12A8BA77CF2CAFF609 /* Foundation.framework in Frameworks */,
+				52B7662C2A5F176B00CF5046 /* CocoaLumberjackSwiftLogBackend in Frameworks */,
+				52B7662A2A5F176B00CF5046 /* CocoaLumberjackSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +135,6 @@
 			children = (
 				7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -177,6 +183,11 @@
 				DA2661278A3121E9B726525389F040D9 /* PBXTargetDependency */,
 			);
 			name = "Pods-ToDoApp-Yandex";
+			packageProductDependencies = (
+				52B766272A5F176B00CF5046 /* CocoaLumberjack */,
+				52B766292A5F176B00CF5046 /* CocoaLumberjackSwift */,
+				52B7662B2A5F176B00CF5046 /* CocoaLumberjackSwiftLogBackend */,
+			);
 			productName = Pods_ToDoApp_Yandex;
 			productReference = CEDACFE43B828EDBF37A01AE105707D4 /* Pods-ToDoApp-Yandex */;
 			productType = "com.apple.product-type.framework";
@@ -199,6 +210,9 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			packageReferences = (
+				52B766262A5F176B00CF5046 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+			);
 			productRefGroup = 177F2FED848F10D19085603D3D507496 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -509,6 +523,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52B766262A5F176B00CF5046 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52B766272A5F176B00CF5046 /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52B766262A5F176B00CF5046 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		52B766292A5F176B00CF5046 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52B766262A5F176B00CF5046 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		52B7662B2A5F176B00CF5046 /* CocoaLumberjackSwiftLogBackend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52B766262A5F176B00CF5046 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwiftLogBackend;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }
