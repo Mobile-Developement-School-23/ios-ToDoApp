@@ -133,7 +133,7 @@ func getToDoItems(completion: @escaping (Result<[ToDoItem], Error>) -> Void)
             let postRequest = ToDoPostRequest(status: "ok", element: todoItem)
             let data = try encoder.encode(postRequest)
             request.httpBody = data
-            print(postRequest)
+    //        print(postRequest)
             let task = session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     completion(.failure(error))
@@ -178,7 +178,7 @@ func getToDoItems(completion: @escaping (Result<[ToDoItem], Error>) -> Void)
             let requestBody = ToDoPostRequest(status: "ok", element: item)
             let data = try encoder.encode(requestBody)
             request.httpBody = data
-            print(requestBody)
+                //    print(requestBody)
             let task = session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     completion(.failure(error))

@@ -273,7 +273,6 @@ class NewTaskViewController: UIViewController, UITextViewDelegate {
     @objc func deleteButtonTapped() {
         let newItem = createNewItem()
         didDeleteItem?(newItem)
-       // print("Delete")
         dismiss(animated: true, completion: nil)
     }
                             

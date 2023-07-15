@@ -9,7 +9,6 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         let item = visibleItems[indexPath.row]
-        print(item.done)
         cell.isRadioButtonSelected = item.done
         cell.titleLabel.attributedText = nil
         cell.titleLabel.text = item.text
@@ -108,7 +107,7 @@ extension MainViewController: UITableViewDelegate {
                 self?.networkingService.deleteTodoItem(withID: item?.id ?? "") { result in
                     switch result {
                     case .success(_):
-                        print("sucess")
+                        print("success")
                         
                     case .failure(_):
                         print("Failed to delete")
@@ -170,11 +169,8 @@ extension MainViewController: UITableViewDelegate {
             }
             
         }
-        print(id)
         newTaskVC.didDeleteItem = { [weak self] newItem in
-            //  print("am i here")
             DispatchQueue.global(qos: .background).async {
-                print(newItem.id)
                 self?.networkingService.deleteTodoItem(withID: newItem.id , completion: { result in
                     switch result{
                     case .success(_):
