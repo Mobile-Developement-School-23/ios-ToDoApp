@@ -52,11 +52,16 @@ extension MainViewController: UITableViewDelegate {
         let longSwipeAction = UIContextualAction(style: .normal, title: nil) { (action, view, completionHandler) in
             let cell = tableView.cellForRow(at: indexPath) as? TableViewCell
             
-            var item = self.fileCache.items[indexPath.row];
+          //  var item = self.fileCache.items[indexPath.row];
+            var visibleItem = self.visibleItems[indexPath.row]
+            if let itemIndex = self.fileCache.items.firstIndex(where: { $0.id == visibleItem.id }) {
+                self.fileCache.items[itemIndex].done = true
+            }
+
             self.fileCache.items[indexPath.row].done = true
-            item.done = true
+            visibleItem.done = true
             DispatchQueue.global(qos: .background).async {
-                self.networkingService.updateTodoItem(withId: item.id, item: item) { result in
+                self.networkingService.updateTodoItem(withId: visibleItem.id, item: visibleItem) { result in
                     switch result{
                     case .success(let item):
                         print("Succesfully updated item: \(item)")
@@ -65,7 +70,7 @@ extension MainViewController: UITableViewDelegate {
                     }
                 }
             }
-            self.fileCache.updateItem(id: item.id, item: item, named: "mock")
+            self.fileCache.updateItem(id: visibleItem.id, item: visibleItem, named: "mock")
             cell?.isRadioButtonSelected = true
             let textAttributes: [NSAttributedString.Key: Any] = [
                 .strikethroughStyle: NSUnderlineStyle.single.rawValue,
@@ -74,6 +79,7 @@ extension MainViewController: UITableViewDelegate {
             ]
             let attributedText = NSAttributedString(string: cell?.titleLabel.text ?? "", attributes: textAttributes)
             cell?.titleLabel.attributedText = attributedText
+            tableView.reloadData()
             self.updateCounterLabel()
 
             completionHandler(true)
@@ -96,7 +102,8 @@ extension MainViewController: UITableViewDelegate {
         swipeAction1.backgroundColor = UIColor(named: "ColorGray")
         
         let swipeAction2 = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completionHandler) in
-            let item = self?.fileCache.items[indexPath.row]
+            let item = self?.visibleItems[indexPath.row]
+          //  let item = self?.fileCache.items[indexPath.row]
             DispatchQueue.global(qos: .background).async {
                 self?.networkingService.deleteTodoItem(withID: item?.id ?? "") { result in
                     switch result {
@@ -109,7 +116,10 @@ extension MainViewController: UITableViewDelegate {
                 }
             }
             DispatchQueue.main.async {
-                self?.fileCache.removeItem(id: item?.id ?? "")
+                if let index = self?.fileCache.items.firstIndex(where: { $0.id == item?.id }) {
+                    self?.fileCache.items.remove(at: index)
+                            }
+                //self?.fileCache.removeItem(id: item?.id ?? "")
                 self?.fileCache.deleteItem(id: "\(item?.id ?? "")", named: "mock")
                 tableView.performBatchUpdates({
                     tableView.deleteRows(at: [indexPath], with: .left)

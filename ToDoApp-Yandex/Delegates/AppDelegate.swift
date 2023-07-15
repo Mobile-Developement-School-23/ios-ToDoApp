@@ -1,5 +1,5 @@
 import UIKit
-import CocoaLumberjack
+//import CocoaLumberjack
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -12,12 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        DDLog.add(DDOSLogger.sharedInstance)
-        let fileLogger: DDFileLogger = DDFileLogger()
-        fileLogger.rollingFrequency = 0
-        fileLogger.maximumFileSize = 1 * 1024 * 1024
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 2
-        DDLog.add(fileLogger)
+//        DDLog.add(DDOSLogger.sharedInstance)
+//        let fileLogger: DDFileLogger = DDFileLogger()
+//        fileLogger.rollingFrequency = 0
+//        fileLogger.maximumFileSize = 1 * 1024 * 1024
+//        fileLogger.logFileManager.maximumNumberOfLogFiles = 2
+//        DDLog.add(fileLogger)
         
         let mainViewController = MainViewController()
         mainViewController.title = "Task"

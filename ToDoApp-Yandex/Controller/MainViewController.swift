@@ -22,6 +22,9 @@ class MainViewController: UIViewController {
         return hideCompleted ? fileCache.items.filter { !$0.done } : fileCache.items
     }
     override func viewDidLoad() {
+        // Add an observer to contentSize in viewDidLoad or similar
+        tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+
 
         
         fetchToDoItems()
@@ -65,9 +68,12 @@ class MainViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.layoutIfNeeded()
-        updateTableViewHeight()
+        tableView.reloadData()  // this triggers contentSize recalculation
+        DispatchQueue.main.async {
+            self.updateTableViewHeight() // we update the height once the size is recalculated
+        }
     }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -82,6 +88,20 @@ class MainViewController: UIViewController {
         self.scrollView.contentSize = contentRect.size
         
         
+    }
+    
+    // Then add this method to observe the changes
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            if let newContentSize = change?[.newKey] as? CGSize {
+                tableViewHeightConstraint?.constant = newContentSize.height
+            }
+        }
+    }
+
+    // Remember to remove the observer when the ViewController is deinitialized
+    deinit {
+        tableView.removeObserver(self, forKeyPath: "contentSize")
     }
     
     @objc func updateTableViewHeight() {

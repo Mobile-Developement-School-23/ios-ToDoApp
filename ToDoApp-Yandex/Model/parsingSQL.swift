@@ -26,7 +26,7 @@ extension ToDoItem{
             let text = text
             let doneValue = done ? 1 : 0
             let deadlineValue = deadline ?? 0
-            let changedAtValue = changed_at ?? 0
+            let changedAtValue = changed_at
 
             let query = """
             REPLACE INTO Items (Id, Text, Importance, Deadline, Done, Created_At, Changed_At, Last_Updated_By)
