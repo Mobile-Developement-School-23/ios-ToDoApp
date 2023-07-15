@@ -23,6 +23,7 @@ class TableViewCell: UITableViewCell {
         controlView.translatesAutoresizingMaskIntoConstraints = false
         controlView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         controlView.addSubview(radioButton)
+        controlView.isEnabled = false
         controlView.backgroundColor = UIColor(named: "BackSecondary")
         radioButton.backgroundColor = UIColor(named: "BackSecondary")
         radioButton.translatesAutoresizingMaskIntoConstraints = false

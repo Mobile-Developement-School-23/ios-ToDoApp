@@ -21,60 +21,18 @@ class MainViewController: UIViewController {
     var visibleItems: [ToDoItem] {
         return hideCompleted ? fileCache.items.filter { !$0.done } : fileCache.items
     }
-
     override func viewDidLoad() {
+
+        
+        fetchToDoItems()
+        
+        tableView.reloadData()
+        fileCache.items = fileCache.load(named: "mock")
         super.viewDidLoad()
-        let newToDoItem = ResponseItem(id: UUID().uuidString,
-                                       text: "Updated Item",
-                                       importance: .basic,
-                                       deadline: Double(Int64(Date().timeIntervalSince1970)),
-                                       done: false,
-                                       color: "#FFFFFF",
-                                       created_at: Double(Int64(Date().timeIntervalSince1970)),
-                                       changed_at: Double(Int64(Date().timeIntervalSince1970)),
-                                       last_updated_by: "Beka's iPhone1")
-//        networkingService.addTodoItem(newToDoItem, revision: 13){result in
-//            switch result{
-//            case .success(let item):
-//                print("Succesfully added newToDoItem: \(item)")
-//            case .failure(let item):
-//                print("Failed to add newToDoItem: \(item)")
-//            }
-//        }
-//        networkingService.getTodoItem(withId:"ABCDEF"){result in
-//            switch result{
-//            case .success(let item):
-//                print("Succesfully found ToDoItem: \(item)")
-//            case .failure(let item):
-//                print("Failed to finding ToDoItem: \(item)")
-//            }
-//        }
-//        networkingService.getToDoItems { result in
-//                    switch result {
-//                    case .success(let items):
-//                        print("Successfully fetched todo items: ")//\(items)
-//                    case .failure(let error):
-//                        print("Failed to fetch todo items: \(error)")
-//                    }
-//                }
-        networkingService.updateTodoItem(withId: "ABCDEF", item: newToDoItem){ result in
-            switch result{
-            case .success(let item):
-                print ("Succesfully update ToDoItem: \(item)")
-            case .failure(let error):
-                print(newToDoItem)
-                print("Falied to update ToDoItem: \(error)")
-            }
-            
-        }
-        
-        
-        dateFormatter.dateFormat = "dd MMM"
-        
-        fileCache.items = fileCache.loadFromJSONFile(named: "Tasks.geojson")
+        dateFormatter.dateFormat = "MMM d"
         setupNavigationBar()
         view.addSubview(scrollView)
-        self.scrollView.backgroundColor = UIColor(named: "BackiOSPrimary")
+        self.scrollView.backgroundColor = UIColor(named: "BackPrimary")
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.backgroundColor = .clear
@@ -105,6 +63,11 @@ class MainViewController: UIViewController {
         let addNewTaskButton = setupNewTaskButton()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.layoutIfNeeded()
+        updateTableViewHeight()
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -122,14 +85,11 @@ class MainViewController: UIViewController {
     }
     
     @objc func updateTableViewHeight() {
-        //print("updateTableViewHeight")
         tableViewHeightConstraint?.constant = tableView.contentSize.height
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
-    func saveItemsToJSONFile() {
-        fileCache.saveToJSONFile(named: "Tasks.geojson")
-    }
+    
     func setupStackView() -> UIStackView{
         let stackView = UIStackView()
         
@@ -207,10 +167,7 @@ class MainViewController: UIViewController {
         ])
         return addNewTaskButton
     }
-    
-    
     @objc func showButtonTapped() {
-       // print("showButtonTapped")
         hideCompleted = false
         showButton.setTitle("Скрыть", for: .normal)
         showButton.removeTarget(self, action: #selector(showButtonTapped), for: .touchUpInside)
@@ -219,29 +176,67 @@ class MainViewController: UIViewController {
     }
     
     @objc func hideButtonTapped(){
-      //  print("hideButtonTapped")
         hideCompleted = true
         showButton.setTitle("Показать", for: .normal)
         showButton.removeTarget(self, action: #selector(hideButtonTapped), for: .touchUpInside)
         showButton.addTarget(self, action: #selector(showButtonTapped), for: .touchUpInside)
         tableView.reloadData()
+        //print(fileCache.items.count)
     }
-    
     @objc func addNewTaskButtonTapped() {
-        let newTaskVC = ViewController()
-        newTaskVC.didSaveItem = { [weak self] newItem in
+        let newTaskVC = NewTaskViewController()
+        newTaskVC.toDoItem = ToDoItem(id: "", text: "", importance: .basic, deadline: 0, done: false, created_at: Date().timeIntervalSince1970, changed_at: Date().timeIntervalSince1970, last_updated_by: "Beka's iPhone")
+        
+            newTaskVC.didSaveItem = { [weak self] newItem in
+                DispatchQueue.global(qos: .background).async {
+                self?.networkingService.addTodoItem(newItem) { result in
+                    switch result{
+                    case .success(_):
+                        print("")
+                    case .failure(let e):
+                        print(e.localizedDescription)
+                    }
+                    }
+                }
             self?.fileCache.addItem(item: newItem)
-            self?.fileCache.saveToJSONFile(named: "Tasks.geojson")
-            self?.tableView.reloadData() // Reload the table view to reflect the changes
+            self?.fileCache.insertItem(item: newItem, named: "mock")
+            self?.tableView.reloadData()
             self?.updateTableViewHeight()
         }
         present(newTaskVC, animated: true)
     }
     func updateCounterLabel(){
         let completedCount = fileCache.items.filter { $0.done }.count
-      //  print("filecacheitems: \(fileCache.items)")
         if let counterLabel = stackView.arrangedSubviews.first as? UILabel {
             counterLabel.text = "Выполнено - \(completedCount)"
         }
     }
+    func fetchToDoItems() {
+        networkingService.getToDoItems { [weak self] result in
+            switch result {
+            case .success(let items):
+                DispatchQueue.main.async { [weak self] in
+                    self?.fileCache.items = items
+                    self?.tableView.reloadData()
+                    self?.updateTableViewHeight()
+                    self?.updateCounterLabel()
+                }
+            case .failure(let error):
+                print("Failed to fetch todo items: \(error)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.fileCache.items = self?.fileCache.load(named: "mock") ?? []
+                    self?.tableView.reloadData()
+                    self?.updateTableViewHeight()
+                    self?.updateCounterLabel()
+                }
+
+            }
+        }
+        
+
+    }
+    
+
+
+
 }

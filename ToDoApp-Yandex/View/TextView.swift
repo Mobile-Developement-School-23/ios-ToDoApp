@@ -1,6 +1,6 @@
 import UIKit
 
-class MiniTextView: UITextView, UITextViewDelegate {
+class TextView: UITextView, UITextViewDelegate {
     init() {
         super.init(frame: .zero, textContainer: nil)
         setupTextView()

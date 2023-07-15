@@ -1,8 +1,8 @@
 import UIKit
 
-class CustomView: UIControl {
+class DeadlineViewControl: UIControl {
     
-    let secondView: UIView = {
+    let deadlineView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 66).isActive = true
@@ -20,7 +20,7 @@ class CustomView: UIControl {
         return label
     }()
     
-    let additionalLabel: UILabel = {
+    let calendarLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .blue
@@ -49,35 +49,35 @@ class CustomView: UIControl {
     }
     
     private func setupViews() {
-        addSubview(secondView)
-        secondView.addSubview(stackView)
+        addSubview(deadlineView)
+        deadlineView.addSubview(stackView)
         
         stackView.addArrangedSubview(secondLabel)
-        stackView.addArrangedSubview(additionalLabel)
+        stackView.addArrangedSubview(calendarLabel)
         
         stackView.backgroundColor = .blue
         NSLayoutConstraint.activate([
-            additionalLabel.heightAnchor.constraint(equalToConstant: 18),
-            secondView.topAnchor.constraint(equalTo: topAnchor),
-            secondView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            secondView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            secondView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            calendarLabel.heightAnchor.constraint(equalToConstant: 18),
+            deadlineView.topAnchor.constraint(equalTo: topAnchor),
+            deadlineView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            deadlineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            deadlineView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            stackView.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: 16),
-            stackView.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -90),
-            stackView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -10)
+            stackView.leadingAnchor.constraint(equalTo: deadlineView.leadingAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: deadlineView.topAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: deadlineView.trailingAnchor, constant: -90),
+            stackView.bottomAnchor.constraint(equalTo: deadlineView.bottomAnchor, constant: -10)
         ])
     }
     
-    func toggleAdditionalLabelVisibility(_ isVisible: Bool) {
-        additionalLabel.isHidden = !isVisible
+    func toggleCalendarLabelVisibility(_ isVisible: Bool) {
+        calendarLabel.isHidden = !isVisible
     }
     
-    func updateAdditionalLabel(withDate date: Date) {
+    func updateCalendarLabel(withDate date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateString = dateFormatter.string(from: date)
-        additionalLabel.text = dateString
+        calendarLabel.text = dateString
     }
 }
